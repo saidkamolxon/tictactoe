@@ -1,5 +1,4 @@
 import sys
-from random import randrange
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QLabel
 
 class Button(QPushButton):
@@ -55,29 +54,8 @@ class TicTacToe(QWidget):
                 self.label.setText(f'WINNER IS {self.turn}')
                 self.deactivate()
             else:
-                self.__changeTurn()
-                if self.turn == '⭕️': self.turnOfCPU()
-
-    def turnOfCPU(self):
-        while True:
-            i, j = self.__getRandMove()
-            if not self.btns[i][j].text():
-                self.btns[i][j].setText(self.turn)
-                self.__changeTurn()
-                break
-                if self.check() == -1:
-                    self.label.setText('--- DRAW ---')
-                    self.deactivate()
-                elif self.check():
-                    self.label.setText(f'WINNER IS {self.turn}')
-                    self.deactivate()
-
-    def __getRandMove(self):
-        return randrange(3), randrange(3)
-
-    def __changeTurn(self):
-        self.turn = '❌' if self.turn == '⭕️' else '⭕️'
-        self.label.setText(f'Turn {self.turn}')
+                self.turn = '❌' if self.turn == '⭕️' else '⭕️'
+                self.label.setText(f'Turn {self.turn}')
 
     def deactivate(self):
         for i in range(3):
