@@ -1,3 +1,3 @@
 # tictactoe
-Tic tac toe game
-Made with PyQt5
+Tic tac toe game made with PyQt5
+(Two players)
